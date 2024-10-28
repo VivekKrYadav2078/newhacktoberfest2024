@@ -1,49 +1,68 @@
-<!-- <!DOCTYPE html>
-<html ng-app="myApp">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>AngularJS Routing Example</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        * {
+            background-color: black;
+            margin: auto;
+            padding: auto;
+        }
+
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-height: max-content;
+            margin-top: 40vh;
+            width: max-content;
+            gap: 20px;
+        }
+
+        .box h1 {
+            font-size: larger;
+            color: aliceblue;
+        }
+
+        .time {
+            width: 300px;
+            height: 80px;
+            border-radius: 20px;
+            background-color: orange;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 40px;
+            align-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="box">
+        <h1>Your Local Time</h1>
+        <div class="time">
 
-    <h1>AngularJS Routing Example</h1>
+        </div>
+    </div>
 
-    <ul>
-        <li><a href="#/login">Login</a></li>
-        <li><a href="#/register">Register</a></li>
-    </ul>
-
-    <div ng-view></div>
-
-    <script>
-        var app = angular.module("myApp", ["ngRoute"]);
-
-        app.config(function($routeProvider) {
-            $routeProvider
-                .when("/login", {
-                    templateUrl: "login.html",
-                    controller: "LoginController"
-                })
-                .when("/register", {
-                    templateUrl: "register.html",
-                    controller: "RegisterController"
-                })
-                .otherwise({
-                    redirectTo: "/register"
-                });
-        });
-
-        app.controller("LoginController", function($scope) {
-            $scope.message = "Login Page";
-        });
-
-        app.controller("RegisterController", function($scope) {
-            $scope.message = "Register Page";
-        });
-
-    </script>
 
 </body>
+<script>
+    const clock = document.querySelector(".time");
 
-</html> -->
+    setInterval(() => {
+        let date = new Date();
+        clock.innerHTML = date.toLocaleTimeString();
+
+
+
+    }, 1000);
+
+</script>
+
+</html>
